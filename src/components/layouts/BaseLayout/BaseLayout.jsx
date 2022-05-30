@@ -8,7 +8,7 @@ const navigation = [
 ];
 
 export const BaseLayout = (props) => {
-  const { children, title } = props;
+  const { navbar } = props;
   return (
     <div>
       <div className='flex w-14 flex-col fixed inset-y-0 py-4'>
@@ -51,21 +51,7 @@ export const BaseLayout = (props) => {
         </div>
       </div>
 
-      <div className='pr-8 pl-20'>
-        <div className='mx-auto flex flex-col px-8'>
-          <div className='sticky top-0 z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex'>
-            <div className='flex-1 flex justify-between'>
-              <div className='flex-1 flex items-center'>
-                <h1 className='text-2xl font-semibold text-gray-900'>
-                  {title ?? "Title"}
-                </h1>
-              </div>
-              <div className='ml-6 flex items-center'></div>
-            </div>
-          </div>
-          <main className='flex-1'>{children}</main>
-        </div>
-      </div>
+      {navbar}
     </div>
   );
 };

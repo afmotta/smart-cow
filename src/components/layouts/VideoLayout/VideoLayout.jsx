@@ -17,6 +17,6 @@ const Navbar = (props) => {
 };
 
 export const VideoLayout = (props) => {
-  const { children, title } = props;
-  return <BaseLayout navbar={<Navbar title={title} />}>{children}</BaseLayout>;
+  const { title, ...rest } = props;
+  return <BaseLayout navbar={<Navbar title={title} />} {...rest} />;
 };

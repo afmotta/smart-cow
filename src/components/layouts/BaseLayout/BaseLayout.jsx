@@ -3,12 +3,12 @@ import clsx from "clsx";
 import { Logo } from "../../atoms/Logo";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: VideoCameraIcon, current: true },
-  { name: "Projects", href: "#", icon: CollectionIcon, current: false },
+  { name: "video", href: "#", icon: VideoCameraIcon, current: true },
+  { name: "gallery", href: "#", icon: CollectionIcon, current: false },
 ];
 
 export const BaseLayout = (props) => {
-  const { children, navbar } = props;
+  const { active, children, navbar } = props;
   return (
     <div>
       <div className='flex w-14 flex-col fixed inset-y-0 py-4'>
@@ -18,24 +18,27 @@ export const BaseLayout = (props) => {
           </div>
           <div className='flex-grow mt-10 flex flex-col'>
             <nav className='flex-1 px-2 pb-4 space-y-4'>
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={clsx(
-                    item.current ? "bg-blue-100" : "hover:bg-gray-100",
-                    "group rounded-md py-2 px-2 flex items-center text-sm font-medium"
-                  )}
-                >
-                  <item.icon
+              {navigation.map((item) => {
+                const isActive = item.name === active;
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
                     className={clsx(
-                      item.current ? "text-blue-500" : "text-gray-400",
-                      "mr-3 flex-shrink-0 h-6 w-6"
+                      isActive ? "bg-blue-100" : "hover:bg-gray-100",
+                      "group rounded-md py-2 px-2 flex items-center text-sm font-medium"
                     )}
-                    aria-hidden='true'
-                  />
-                </a>
-              ))}
+                  >
+                    <item.icon
+                      className={clsx(
+                        isActive ? "text-blue-500" : "text-gray-400",
+                        "mr-3 flex-shrink-0 h-6 w-6"
+                      )}
+                      aria-hidden='true'
+                    />
+                  </a>
+                );
+              })}
             </nav>
           </div>
           <div className='flex flex-col items-center mb-4'>

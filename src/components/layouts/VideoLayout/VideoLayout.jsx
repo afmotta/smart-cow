@@ -10,7 +10,20 @@ const Navbar = (props) => {
             {title ?? ""}
           </h1>
         </div>
-        <div className='ml-6 flex items-center'></div>
+        <div className='ml-6 flex items-center'>
+          <button
+            type='button'
+            className='mr-4 inline-flex items-center px-2.5 py-1.5 shadow-sm text-xs font-medium rounded text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+          >
+            Cancel
+          </button>
+          <button
+            type='button'
+            className='inline-flex items-center px-2.5 py-1.5 shadow-sm text-xs font-medium rounded text-white bg-lime-500 hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500'
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import { CollectionIcon, VideoCameraIcon } from "@heroicons/react/outline";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 import { Logo } from "../../atoms/Logo";
 
 const navigation = [
-  { name: "video", href: "#", icon: VideoCameraIcon, current: true },
-  { name: "gallery", href: "#", icon: CollectionIcon, current: false },
+  { name: "video", to: "/video", icon: VideoCameraIcon, current: true },
+  { name: "gallery", to: "/gallery", icon: CollectionIcon, current: false },
 ];
 
 export const BaseLayout = (props) => {
@@ -21,9 +22,9 @@ export const BaseLayout = (props) => {
               {navigation.map((item) => {
                 const isActive = item.name === active;
                 return (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.to}
                     className={clsx(
                       isActive ? "bg-blue-100" : "hover:bg-gray-100",
                       "group rounded-md py-2 px-2 flex items-center text-sm font-medium"
@@ -36,7 +37,7 @@ export const BaseLayout = (props) => {
                       )}
                       aria-hidden='true'
                     />
-                  </a>
+                  </Link>
                 );
               })}
             </nav>

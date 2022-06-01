@@ -1,12 +1,19 @@
 import { BaseLayout } from "../BaseLayout";
 
 const Navbar = (props) => {
-  const { title } = props;
+  const { title, onTitleClick = () => {} } = props;
+  console.log("onTitleClick", onTitleClick);
   return (
     <div className='sticky top-0 z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex'>
-      <div className='flex-1 flex justify-between'>
-        <div className='flex-1 flex items-center'>
-          <h1 className='text-2xl font-semibold text-gray-900'>
+      <div className='flex-1 flex justify-between' onClick={onTitleClick}>
+        <div
+          className='flex-1 flex items-center cursor-pointer'
+          onClick={onTitleClick}
+        >
+          <h1
+            className='text-2xl font-semibold text-gray-900'
+            onClick={onTitleClick}
+          >
             {title ?? ""}
           </h1>
         </div>
@@ -30,6 +37,8 @@ const Navbar = (props) => {
 };
 
 export const VideoLayout = (props) => {
-  const { title, ...rest } = props;
-  return <BaseLayout navbar={<Navbar title={title} />} {...rest} />;
+  const { title, onTitleClick, ...rest } = props;
+  return (
+    <BaseLayout navbar={<Navbar {...{ title, onTitleClick }} />} {...rest} />
+  );
 };

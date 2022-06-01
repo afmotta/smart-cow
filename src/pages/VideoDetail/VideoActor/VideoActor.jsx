@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 import { VideoTabs } from "../VideoTabs";
 import Anna from "./Anna.png";
 import May from "./May.png";

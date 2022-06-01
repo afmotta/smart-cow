@@ -1,4 +1,3 @@
-import React from "react";
 import bg from "./bg.png";
 
 export const VideoSummary = (props) => {

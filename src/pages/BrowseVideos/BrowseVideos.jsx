@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge } from "../../components/Badge";
 import { BaseLayout } from "../../layouts/BaseLayout";
 import bg from "./bg.png";

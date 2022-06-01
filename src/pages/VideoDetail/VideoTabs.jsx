@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const keys = ["actor", "voice", "alignment", "background"];

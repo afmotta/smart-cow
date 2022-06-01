@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "../../atoms/Badge";
+import { Badge } from "../../components/Badge";
 import { BaseLayout } from "../../layouts/BaseLayout";
 import bg from "./bg.png";
 import { DotsHorizontalIcon } from "@heroicons/react/outline";

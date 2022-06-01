@@ -1,7 +1,7 @@
 import { CollectionIcon, VideoCameraIcon } from "@heroicons/react/outline";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-import { Logo } from "../../atoms/Logo";
+import { Logo } from "../../components/Logo";
 
 const navigation = [
   { name: "video", to: "/video", icon: VideoCameraIcon, current: true },

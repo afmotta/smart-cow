@@ -1,12 +1,12 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import { BrowseVideos } from "./components/pages/BrowseVideos";
+import { BrowseVideos } from "./pages/BrowseVideos";
 import {
   VideoActor,
   VideoDetail,
   VideoVoice,
   VideoAlignment,
   VideoBackground,
-} from "./components/pages/VideoDetail";
+} from "./pages/VideoDetail";
 
 function App() {
   return (

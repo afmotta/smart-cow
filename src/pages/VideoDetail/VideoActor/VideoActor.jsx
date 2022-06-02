@@ -1,23 +1,8 @@
 import clsx from "clsx";
-import Anna from "./Anna.png";
-import May from "./May.png";
-import Mike from "./Mike.png";
-import Peter from "./Peter.png";
-import Skye from "./Skye.png";
-import Vincent from "./Vincent.png";
-import YoYo from "./YoYo.png";
-
-const actors = [
-  { name: "Anna", picture: Anna },
-  { name: "YoYo", picture: YoYo, active: true },
-  { name: "Skye", picture: Skye },
-  { name: "Mike", picture: Mike },
-  { name: "Vincent", picture: Vincent },
-  { name: "Peter", picture: Peter },
-  { name: "May", picture: May },
-];
+import { useActors } from "../../../hooks/useActors";
 
 export const VideoActor = (props) => {
+  const actors = useActors();
   return (
     <ul className='grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8'>
       {actors.map((actor) => (

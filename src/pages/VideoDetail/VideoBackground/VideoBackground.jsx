@@ -1,7 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import clsx from "clsx";
-import { VideoTabs } from "../VideoTabs";
 import s1 from "./s1.png";
 import s2 from "./s2.png";
 import s3 from "./s3.png";
@@ -49,50 +48,44 @@ const Gallery = () => {
 
 export const VideoBackground = () => {
   return (
-    <div>
-      <VideoTabs active='background' />
-      <div className='block max-w-7xl mx-auto px-4'>
-        <div className='max-w-3xl mx-auto divide-y-2 divide-gray-200'>
-          <dl className='divide-y divide-gray-200'>
-            {panels.map((panel) => (
-              <Disclosure as='div' key={panel} className='pt-6'>
-                {({ open }) => (
-                  <div
-                    className={clsx(
-                      open && "bg-blue-50",
-                      "pl-2 pr-2 pt-2 pb-6"
-                    )}
-                  >
-                    <dt className='text-lg'>
-                      <Disclosure.Button className='text-left w-full flex justify-between items-start text-gray-400'>
-                        <span
+    <div className='block px-4'>
+      <div className='max-w-3xl mx-auto divide-y-2 divide-gray-200'>
+        <dl className='divide-y divide-gray-200'>
+          {panels.map((panel) => (
+            <Disclosure as='div' key={panel} className='pt-6'>
+              {({ open }) => (
+                <div
+                  className={clsx(open && "bg-blue-50", "pl-2 pr-2 pt-2 pb-6")}
+                >
+                  <dt className='text-lg'>
+                    <Disclosure.Button className='text-left w-full flex justify-between items-start text-gray-400'>
+                      <span
+                        className={clsx(
+                          "font-medium",
+                          open ? "text-blue-500" : "text-gray-500"
+                        )}
+                      >
+                        {panel}
+                      </span>
+                      <span className='ml-6 h-7 flex items-center'>
+                        <ChevronDownIcon
                           className={clsx(
-                            "font-medium",
-                            open ? "text-blue-500" : "text-gray-500"
+                            open ? "-rotate-180" : "rotate-0",
+                            "h-6 w-6 transform"
                           )}
-                        >
-                          {panel}
-                        </span>
-                        <span className='ml-6 h-7 flex items-center'>
-                          <ChevronDownIcon
-                            className={clsx(
-                              open ? "-rotate-180" : "rotate-0",
-                              "h-6 w-6 transform"
-                            )}
-                            aria-hidden='true'
-                          />
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as='dd' className='mt-2 pr-12'>
-                      <Gallery />
-                    </Disclosure.Panel>
-                  </div>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
-        </div>
+                          aria-hidden='true'
+                        />
+                      </span>
+                    </Disclosure.Button>
+                  </dt>
+                  <Disclosure.Panel as='dd' className='mt-2 pr-12'>
+                    <Gallery />
+                  </Disclosure.Panel>
+                </div>
+              )}
+            </Disclosure>
+          ))}
+        </dl>
       </div>
     </div>
   );

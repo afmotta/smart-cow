@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { Tabs } from "../../components/Tabs";
 import { VideoLayout } from "../../layouts/VideoLayout";
 import { VideoOverlay } from "./VideoOverlay";
 import { VideoSummary } from "./VideoSummary";
@@ -19,8 +20,14 @@ export const VideoDetail = () => {
             <VideoSummary />
           </div>
           <div className='w-2/5 px-4'>
-            {/* Outlet renders child routes' elements */}
-            <Outlet />
+            <div className='flex flex-col'>
+              <Tabs
+                root='/video/'
+                keys={["actor", "voice", "alignment", "background"]}
+              />
+              {/* Outlet renders child routes' elements, as defined in App */}
+              <Outlet />
+            </div>
           </div>
         </div>
       </VideoLayout>

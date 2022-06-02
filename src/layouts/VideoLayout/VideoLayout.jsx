@@ -1,8 +1,8 @@
+import { ChevronDownIcon } from "@heroicons/react/outline";
 import { BaseLayout } from "../BaseLayout";
 
 const Navbar = (props) => {
   const { title, onTitleClick = () => {} } = props;
-  console.log("onTitleClick", onTitleClick);
   return (
     <div className='sticky top-0 z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex'>
       <div className='flex-1 flex justify-between' onClick={onTitleClick}>
@@ -16,6 +16,7 @@ const Navbar = (props) => {
           >
             {title ?? ""}
           </h1>
+          <ChevronDownIcon className="ml-4 h-6 w-6"/>
         </div>
         <div className='ml-6 flex items-center'>
           <button

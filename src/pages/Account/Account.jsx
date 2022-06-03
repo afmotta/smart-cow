@@ -1,7 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { BaseLayout } from "../../layouts/BaseLayout";
+import { Tabs } from "../../components/Tabs";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Navbar = () => {
+  const { logout } = useAuth();
   return (
     <div className='sticky top-0 z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex'>
       <div className='flex-1 flex justify-between'>
@@ -10,6 +13,7 @@ const Navbar = () => {
         </div>
         <div className='ml-6 flex items-center'>
           <button
+            onClick={logout}
             type='button'
             className='inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-red-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'
           >
@@ -25,6 +29,8 @@ export const Account = () => {
   return (
     <BaseLayout navbar={<Navbar />} active='gallery'>
       <div className='py-8'>
+        <Tabs root='/account/' keys={["profile", "plan", "billing"]} />
+        <div className='mt-4' />
         <Outlet />
       </div>
     </BaseLayout>

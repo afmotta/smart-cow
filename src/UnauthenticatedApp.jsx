@@ -1,14 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { BrowseVideos } from "./pages/BrowseVideos";
-import { VideoDetail } from "./pages/VideoDetail";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
 
 export const UnauthenticatedApp = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='login' element={<BrowseVideos />} />
-        <Route path='signin' element={<VideoDetail />} />
-        <Route path='*' element={<Navigate to='/login' replace={true} />} />
+        <Route path='signin' element={<Login />} />
+        <Route path='signup' element={<Signup />} />
+        <Route path='*' element={<Navigate to='/signin' replace={true} />} />
       </Routes>
     </BrowserRouter>
   );

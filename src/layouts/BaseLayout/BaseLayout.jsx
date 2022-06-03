@@ -1,8 +1,9 @@
 import { CollectionIcon, VideoCameraIcon } from "@heroicons/react/outline";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Avatar } from "../../components/Avatar";
 import { Logo } from "../../components/Logo";
+import { useAuth } from "../../contexts/AuthContext";
 
 const navigation = [
   { name: "video", to: "/video", icon: VideoCameraIcon, current: true },
@@ -10,7 +11,9 @@ const navigation = [
 ];
 
 export const BaseLayout = (props) => {
-  const { active, children, navbar } = props;
+  const { active, centered, children, navbar, noPadding } = props;
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   return (
     <div>
       <div className='flex w-14 flex-col fixed inset-y-0 py-4'>
@@ -43,19 +46,33 @@ export const BaseLayout = (props) => {
               })}
             </nav>
           </div>
-          <div className='flex flex-col items-center mb-4'>
-            <button className='max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'>
-              <span className='sr-only'>Open user menu</span>
-              <Avatar />
-            </button>
-          </div>
+          {isAuthenticated && (
+            <div className='flex flex-col items-center mb-4'>
+              <button
+                className='max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                onClick={() => navigate("/account/profile")}
+              >
+                <span className='sr-only'>Open user menu</span>
+                <Avatar />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className='pr-8 pl-20'>
-        <div className='mx-auto flex flex-col px-8'>
+      <div>
+        <div
+          className={clsx("mx-auto flex flex-col pl-28", !noPadding && "pr-16")}
+        >
           {navbar}
-          <main className='flex-1'>{children}</main>
+          <main
+            className={clsx(
+              "flex-1 min-h-screen",
+              centered && "flex justify-center items-center"
+            )}
+          >
+            {children}
+          </main>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ const Navbar = (props) => {
           </button>
           <button
             type='button'
-            className='inline-flex items-center px-2.5 py-1.5 shadow-sm text-xs font-medium rounded text-white bg-lime-500 hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500'
+            className='inline-flex items-center px-2.5 py-1.5 shadow-sm text-xs font-medium rounded text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500'
           >
             Save
           </button>

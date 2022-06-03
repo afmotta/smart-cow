@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className='ml-6 flex items-center'>
           <button
             type='button'
-            className='inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-lime-600 hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500'
+            className='inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500'
           >
             Create new
           </button>
@@ -30,7 +30,7 @@ export const BrowseVideos = () => {
         <ul className='grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8'>
           <li
             key='video0'
-            className='relative flex flex-col items-center rounded-lg bg-gray-100 p-2 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-lime-500 '
+            className='relative flex flex-col items-center rounded-lg bg-gray-100 p-2 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-emerald-500 '
           >
             <button
               type='button'

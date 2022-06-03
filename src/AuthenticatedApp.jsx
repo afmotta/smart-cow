@@ -33,7 +33,7 @@ export const AuthenticatedApp = () => {
             element={<Navigate to='/account/profile' replace={true} />}
           />
         </Route>
-        <Route path='/' element={<Navigate to='/gallery' replace={true} />} />
+        <Route path='*' element={<Navigate to='/gallery' replace={true} />} />
       </Routes>
     </BrowserRouter>
   );
